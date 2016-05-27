@@ -1,9 +1,16 @@
 #!/bin/bash
 
 #curl "http://localhost:3000/sign-in" \
-curl "http://httpbin.org/post" \
+curl "http://localhost:3000/sign-in" \
   --include \
   --request POST \
-  --data-urlencode ""
+  --header "Content-Type: application/json" \
+  --data "{
+    \"credentials\": {
+      \"email\": \"$EMAIL\",
+      \"password\": \"$PASSWORD\"
+    }
+  }"
+
 
 echo
